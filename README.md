@@ -8,3 +8,7 @@
 
 "styled-components": "^6.1.9",  
 "react-icons": "^5.2.0",
+
+### 참고
+
+[youtube - CodingLab](https://www.youtube.com/watch?v=ES8vJcUqE7s&t=264s)
