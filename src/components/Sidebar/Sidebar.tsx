@@ -54,7 +54,7 @@ export default function Sidebar() {
         />
       </S.Search>
       <S.Divider />
-      <S.Nav>
+      <S.Nav isOpen={sidebarOpen}>
         {linksArray.map(({ icon, label, notification, to }) => (
           <S.LinkContainer key={label} isActive={pathname === to}>
             <S.Link

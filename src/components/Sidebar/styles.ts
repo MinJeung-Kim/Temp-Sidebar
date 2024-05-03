@@ -75,9 +75,9 @@ export const S = {
     background: ${({ theme }) => theme.bg3};
     margin: ${v.lgSpacing} 0;
   `,
-  Nav: styled.div`
+  Nav: styled.div<{ isOpen: boolean }>`
     width: 100%;
-    height: calc(100% / 2);
+    height: 100%;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       display: none;
@@ -122,6 +122,7 @@ export const S = {
     margin-right: ${v.mdSpacing};
   `,
   Theme: styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
     font-size: 16px;
