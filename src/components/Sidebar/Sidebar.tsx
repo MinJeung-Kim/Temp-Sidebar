@@ -54,30 +54,39 @@ export default function Sidebar() {
         />
       </S.Search>
       <S.Divider />
-      {linksArray.map(({ icon, label, notification, to }) => (
-        <S.LinkContainer key={label} isActive={pathname === to}>
-          <S.Link to={to} style={!sidebarOpen ? { width: `fit-content` } : {}}>
-            <S.LinkIcon>{icon}</S.LinkIcon>
-            {sidebarOpen && (
-              <>
-                <S.LinkLabel>{label}</S.LinkLabel>
-                {!!notification && (
-                  <S.LinkNotification>{notification}</S.LinkNotification>
-                )}
-              </>
-            )}
-          </S.Link>
-        </S.LinkContainer>
-      ))}
-      <S.Divider />
-      {secondaryLinksArray.map(({ label, icon, to }) => (
-        <S.LinkContainer key={label} isActive={pathname === to}>
-          <S.Link to={"/"} style={!sidebarOpen ? { width: `fit-content` } : {}}>
-            <S.LinkIcon>{icon}</S.LinkIcon>
-            {sidebarOpen && <S.LinkLabel>{label}</S.LinkLabel>}
-          </S.Link>
-        </S.LinkContainer>
-      ))}
+      <S.Nav>
+        {linksArray.map(({ icon, label, notification, to }) => (
+          <S.LinkContainer key={label} isActive={pathname === to}>
+            <S.Link
+              to={to}
+              style={!sidebarOpen ? { width: `fit-content` } : {}}
+            >
+              <S.LinkIcon>{icon}</S.LinkIcon>
+              {sidebarOpen && (
+                <>
+                  <S.LinkLabel>{label}</S.LinkLabel>
+                  {!!notification && (
+                    <S.LinkNotification>{notification}</S.LinkNotification>
+                  )}
+                </>
+              )}
+            </S.Link>
+          </S.LinkContainer>
+        ))}
+        <S.Divider />
+        {secondaryLinksArray.map(({ label, icon, to }) => (
+          <S.LinkContainer key={label} isActive={pathname === to}>
+            <S.Link
+              to={"/"}
+              style={!sidebarOpen ? { width: `fit-content` } : {}}
+            >
+              <S.LinkIcon>{icon}</S.LinkIcon>
+              {sidebarOpen && <S.LinkLabel>{label}</S.LinkLabel>}
+            </S.Link>
+          </S.LinkContainer>
+        ))}
+      </S.Nav>
+
       <S.Divider />
       <S.Theme>
         {sidebarOpen && <S.ThemeLabel>Dark Mode</S.ThemeLabel>}

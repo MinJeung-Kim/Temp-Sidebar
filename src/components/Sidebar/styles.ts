@@ -9,6 +9,11 @@ export const S = {
     height: 100vh;
     padding: ${v.lgSpacing};
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: ${({ isOpen }) => (!isOpen ? `center` : `baseline`)};
   `,
   SidebarButton: styled.button<{ isOpen: boolean }>`
     ${btnReset};
@@ -25,7 +30,8 @@ export const S = {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transform: ${({ isOpen }) => (!isOpen ? `rotate(180deg)` : `initial`)};
+    transform: ${({ isOpen }) =>
+      !isOpen ? `rotate(268deg)` : `rotate(93deg)`};
   `,
   Logo: styled.div`
     width: 52px;
@@ -68,6 +74,14 @@ export const S = {
     width: 100%;
     background: ${({ theme }) => theme.bg3};
     margin: ${v.lgSpacing} 0;
+  `,
+  Nav: styled.div`
+    width: 100%;
+    height: calc(100% / 2);
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `,
   LinkContainer: styled.div<{ isActive: boolean }>`
     background: ${({ theme, isActive }) =>
